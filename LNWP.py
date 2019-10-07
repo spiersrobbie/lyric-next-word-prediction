@@ -12,13 +12,13 @@ from SkipGram import *
 # Everything aside from these is not able to be altered by the user
 
 # Artist's name:
-artist = 'Cupcakke'
+artist = 'Mitski'
 
 # Text file to write lyrics to
 txt_file = 'lyricsv1.txt'
 
 # Learning rate of SkipGram
-skipLearn = 0.1
+skipLearn = 0.01
 
 # Size of projection layer of SkipGram hidden layer
 skipProj = 1000
@@ -27,7 +27,7 @@ skipProj = 1000
 num_strings = 20
 
 # Number of words to include in the randomizing set when choosing
-per_random = 50
+per_random = 20
 
 # Length of desired epoch, or "verse"
 epoch_length = 30
