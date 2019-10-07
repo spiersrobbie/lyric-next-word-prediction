@@ -8,6 +8,7 @@ class SkipGram:
         self.projection_size = options['projection_size']
         self.txt_file = txt_file
         self.rand_mult = options['rand_mult']
+        self.nearest_words = options['nearest_words']
 
 
     def load_and_clean(self, txt_file):
@@ -18,33 +19,8 @@ class SkipGram:
             for i in range(len(row)):
                 wd = row[i].lower()
                 b = 0
-                if wd.find('[') != -1:
-                    b = 1
-                elif wd.find(']') != -1:
-                    b = 1
-                elif wd.find('(') != -1:
-                    b = 1
-                elif wd.find(')') != -1:
-                    b = 1
-                elif wd.find("'") != -1:
-                    b = 1
-                elif wd.find('&') != -1:
-                    b = 1
-                elif wd.find(' ') != -1:
-                    b = 1
-                elif wd.find('-') != -1:
-                    b = 1
-                elif wd.find('*') != -1:
-                    b = 1
-                elif wd.find('+') != -1:
-                    b = 1
-                elif wd.find(';') != -1:
-                    b = 1
-                elif wd.find('.') != -1:
-                    b = 1
-                elif wd.find('?') != -1:
-                    b = 1
-                elif any(char.isdigit() for char in wd):
+                illegal_chars = "[]()'&-*+;.? "
+                if any(char == ill_char or char.isdigit() for char in wd for ill_char in illegal_chars):
                     b = 1
                 elif wd.find(',') == (len(wd) - 1):
                     clean_string.append(wd[:(len(wd) - 1)])
@@ -52,7 +28,7 @@ class SkipGram:
                     b = 1
                 else:
                     clean_string.append(wd)
-
+                
         return clean_string
 
     def create_dictionary(self, original_text):
@@ -128,7 +104,7 @@ class SkipGram:
         cost = np.zeros(len(x_train) - 4)
         ndy = 0
 
-        for n in range(2, len(x_train) - 2):
+        for n in range(self.nearest_words, len(x_train) - self.nearest_words):
             curr_word = x_train[n]
             x_hot = self.hot_encode(curr_word)
 
@@ -138,8 +114,12 @@ class SkipGram:
             y_true = np.empty((len(self.dictionary), 4))
 
             yhat, proj = self.forward_prop(x_hot, W1, W2)
+            
+            iterate_nearest = list(range(-1 * self.nearest_words, 0))
+            for n in range(1, self.nearest_words + 1):
+                iterate_nearest.append(n)
 
-            for m in [-2, -1, 1, 2]:
+            for m in iterate_nearest:
                 ytrue_hot = self.hot_encode(x_train[n+m])
                 y_true[:, ndx] = ytrue_hot
                 dL_dW1, dL_dW2 = self.back_prop(proj, yhat, ytrue_hot, W2)
