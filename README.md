@@ -76,6 +76,16 @@ Next word prediction model which uses a series of neural networks and API reques
   4. Returns all of these strings
   
 -----------------------------------------------------------------------------------------------------------------------------------
+
+## Author Info
+
+Robbie Spiers
+Idaho State University
+Correspondence to spierob2@isu.edu
+
+All code here was written exclusively by me
+  
+-----------------------------------------------------------------------------------------------------------------------------------
   
 ## References:
 
