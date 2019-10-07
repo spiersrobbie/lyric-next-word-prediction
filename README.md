@@ -61,9 +61,9 @@ Next word prediction model which uses a series of neural networks and API reques
   
   1. Divides raw lyric array into epochs to pass through training
   2. Uses forward and back propagation to train the LSTM network [1-4]
-      * Input: vector encoding of words along range(n*i, n*(i+1))
-                   ** n: Size of each epoch (constant)
-                   ** i: Current epoch number (iterated)
+      * Input: vector encoding of words along range(n * i, n * (i+1))
+        * n: Size of each epoch (constant)
+        * i: Current epoch number (iterated)
       * Output: Pseudo-vector encoding for classification using iterative cross-entropy loss minimization
       * Cost: Cross entropy loss against the next word in the epoch sequence
   3. Builds strings based on the trained weights
