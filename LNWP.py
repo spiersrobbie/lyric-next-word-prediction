@@ -4,15 +4,44 @@ from NextWordPredict import LSTM
 from DownloadLyrics import GeniusAPI
 from SkipGram import *
 
+#----------------------------------------------------------------------------------------------------------------------------------------
+
+# USER INPUT
+
+# These are the 8 metaparameters for the algorithm that can be optimized to improve results
+# Everything aside from these is not able to be altered by the user
+
+# Artist's name:
 artist = 'Cupcakke'
+
+# Text file to write lyrics to
 txt_file = 'lyricsv1.txt'
+
+# Learning rate of SkipGram
 skipLearn = 0.1
+
+# Size of projection layer of SkipGram hidden layer
 skipProj = 1000
+
+# Number of strings to write out
 num_strings = 20
+
+# Number of words to include in the randomizing set when choosing
 per_random = 50
+
+# Length of desired epoch, or "verse"
 epoch_length = 30
+
+# Maximum value of the randomly initialized LSTM matrices
 rand_mult = 0.1
+
+# Number of nearest words on either side to account for in skipgram
+skip_nearest_words = 5
+
+# Maximum value of the randomly initialized SkipGram matrices
 skip_mult = 0.1
+
+#--------------------------------------------------------------------------------------------------------------------------------------
 
 
 skipOptions = {'learning_rate': skipLearn, 'projection_size': skipProj, 'rand_mult': skip_mult}
