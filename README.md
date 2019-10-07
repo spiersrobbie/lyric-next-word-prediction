@@ -10,13 +10,13 @@ Next word prediction model which uses a series of neural networks and API reques
   * NextWordPredict.py contains the LSTM and dependencies
   * LNWP.py contains the master file that pulls and executes the classes from the files
   
-  Python Modules Required
-    * requests
-    * beautifulsoup4
-    * urllib
-    * numpy
-    * matplotlib
-    * csv
+ Python Modules Required
+  * requests
+  * beautifulsoup4
+  * urllib
+  * numpy
+  * matplotlib
+  * csv
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
