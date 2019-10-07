@@ -1,11 +1,32 @@
 # lyric-next-word-prediction
 Next word prediction model which uses a series of neural networks and API requests to train a next word prediction model based on the lyrics from a user input artist
 
+-----------------------------------------------------------------------------------------------------------------------------------
+
+User Notes:
+
+  -> DownloadLyrics.py contains the Genius API
+  -> SkipGram.py obviously contains the word encoding
+  -> NextWordPredict.py contains the LSTM and dependencies
+  -> LNWP.py contains the master file that pulls and executes the classes from the files
+  
+  Python Modules Required
+    -> requests
+    -> beautifulsoup4
+    -> urllib
+    -> numpy
+    -> matplotlib
+    -> csv
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
 Program contains three parts:
 
   1. Genius API
   2. SkipGram Word Encoding
   3. LSTM training for Next Word Prediction
+  
+-----------------------------------------------------------------------------------------------------------------------------------
   
 Part One: API
 
@@ -15,6 +36,8 @@ Part One: API
   2. Stores all of the artist's song URLs   [5]
   3. Reads the lyrics from the HTML embedding from each song URL
   4. Saves the output to a text file
+  
+-----------------------------------------------------------------------------------------------------------------------------------
   
 Part Two: SkipGram
 
@@ -29,6 +52,8 @@ Part Two: SkipGram
       -> Cost: k words that precede and follow the input word (cross-entropy [9])
   5. Encodes each word by passing it through the fully trained network and generating its output
   6. Returns the original text array and a dictionary with words and their corresponding vector encoding
+  
+-----------------------------------------------------------------------------------------------------------------------------------
 
 Part Three: LSTM
 
@@ -50,6 +75,7 @@ Part Three: LSTM
       -> String is formed from all of these words which are passed into one another
   4. Returns all of these strings
   
+-----------------------------------------------------------------------------------------------------------------------------------
   
 References:
 
