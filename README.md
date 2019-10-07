@@ -79,11 +79,11 @@ Next word prediction model which uses a series of neural networks and API reques
 
 ## Author Info
 
-Robbie Spiers
-Idaho State University
-Correspondence to spierob2@isu.edu
+* Robbie Spiers
+* Idaho State University
+* Correspondence to spierob2@isu.edu
 
-All code here was written exclusively by me
+*All code here was written exclusively by me
   
 -----------------------------------------------------------------------------------------------------------------------------------
   
